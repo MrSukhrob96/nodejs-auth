@@ -1,0 +1,34 @@
+include partials/header
+.col.col-login.mx-auto
+    .text-center.mb-6
+        img.h-6(src="images/tabler.svg", alt="Logo")
+    form.card(action="/login", method="post")
+        .card-body.p-6
+            .card-title
+                | Create new account
+            .form-group
+                label.form-label(for="name")
+                    | Name
+                input.form-control(type="text", id="name", name="name", placeholder="Enter name")
+            .form-group
+                label.form-label(for="email")
+                    | Email address
+                input.form-control(type="email", id="email", name="email", placeholder="Enter email")
+            .form-group
+                label.form-label(for="password")
+                    | Password
+                input.form-control(type="password", id="password", name="password", placeholder="Password")
+            .form-group
+                label.custom-control.custom-checkbox
+                    input.custom-control-input(type="checkbox")
+                    span.custom-control-label
+                        | Agree the
+                        a(href="/terms")
+                            | terms and policy
+            .form-footer
+                button#register-btn.btn.btn-primary.btn-block(type="submit")
+                    | Sign Up
+    .text-center.text-muted
+        | Already have account?&nbsp;
+        a(href="/login")
+            | Sign In

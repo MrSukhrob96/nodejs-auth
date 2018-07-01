@@ -1,0 +1,31 @@
+include partials/header
+    .col.col-login.mx-auto
+        .text-center.mb-6
+            img.h-6(src="images/tabler.svg", alt="Logo")
+        form.card(action="/login", method="post")
+            .card-body.p-6
+                .card-title
+                    | Login to your account
+                .form-group
+                    label.form-label(for="email")
+                        | Email address
+                    input.form-control(type="email", id="email", name="email", aria-describedby="emailHelp", placeholder="Enter email")
+            
+                .form-group
+                    label.form-label(for="password")
+                        | Password
+                        a.float-right.small(href="/forgot")
+                            | I forgot password
+                    input.form-control(type="password", id="password", name="password", placeholder="Password")
+                .form-group
+                    label.custom-control.custom-checkbox
+                        input.custom-control-input(type="checkbox")
+                        span.custom-control-label
+                            | Remember Me
+                .form-footer
+                    button#login-btn.btn.btn-primary.btn-block(type="submit")
+                        | Sign In
+        .text-center.text-muted
+            | Don't have account yet?&nbsp;
+            a(href="/register")
+                | Sign Up

@@ -1,0 +1,21 @@
+include partials/header
+    .col.col-login.mx-auto
+        .text-center.mb-6
+            img.h-6(src="images/tabler.svg", alt="Logo")
+        form.card(action="/login", method="post")
+            .card-body.p-6
+                .card-title
+                    | Forgot password
+                p.text-muted
+                    | Enter your email address and your password will be reset and emailed to you.
+                .form-group
+                    label.form-label(for="email")
+                        | Email address
+                    input.form-control(type="email", id="email", name="email", aria-describedby="emailHelp", placeholder="Enter email")
+                .form-footer
+                    button#forgot-btn.btn.btn-primary.btn-block(type="submit")
+                        | Send me new password
+        .text-center.text-muted
+            | Forget it,&nbsp;
+            a(href="/login")
+                | Sign In
