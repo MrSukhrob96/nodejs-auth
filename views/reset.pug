@@ -24,38 +24,25 @@ html(lang="en")
                         .col.col-login.mx-auto
                             .text-center.mb-6
                                 img.h-6(src="images/tabler.svg", alt="Logo")
-                            form.card(action="/login", method="post")
+                            form.card(action="/reset", method="post")
                                 .card-body.p-6
                                     .card-title
-                                        | Login to your account
-                                    .form-group
-                                        label.form-label(for="email")
-                                            | Email address
-                                        input.form-control(class=errorEmail ? "is-invalid": "" type="email", id="email", name="email", placeholder="Enter email" required)
-                                        if errorEmail
-                                            .invalid-feedback
-                                                | #{errorEmail}
+                                        | New password
                                     .form-group
                                         label.form-label(for="password")
-                                            | Password
-                                            a.float-right.small(href="/forgot")
-                                                | I forgot password
+                                            | New Password
                                         input.form-control(class=errorPassword ? "is-invalid": "" type="password", id="password", name="password", placeholder="Password" required)
                                         if errorPassword
                                             .invalid-feedback
                                                 | #{errorPassword}
-                                    .form-group
-                                        label.custom-control.custom-checkbox
-                                            input.custom-control-input(type="checkbox" name="remember")
-                                            span.custom-control-label
-                                                | Remember Me
-                                    if formError
+                                    if errorForm
                                         .alert.alert-danger(role="alert")
-                                            | #{formError}
+                                            | #{errorForm}
                                     .form-footer
-                                        button#login-btn.btn.btn-primary.btn-block(type="submit")
-                                            | Sign In
+                                        input(type="hidden" name="userId" value=user.id)
+                                        button#forgot-btn.btn.btn-primary.btn-block(type="submit")
+                                            | Send new password
                             .text-center.text-muted
-                                | Don't have account yet?&nbsp;
-                                a(href="/register")
-                                    | Sign Up
+                                | Forget it,&nbsp;
+                                a(href="/login")
+                                    | Sign In

@@ -24,7 +24,7 @@ html(lang="en")
                         .col.col-login.mx-auto
                             .text-center.mb-6
                                 img.h-6(src="images/tabler.svg", alt="Logo")
-                            form.card(action="/login", method="post")
+                            form.card(action="/forgot", method="post")
                                 .card-body.p-6
                                     .card-title
                                         | Forgot password
@@ -33,7 +33,16 @@ html(lang="en")
                                     .form-group
                                         label.form-label(for="email")
                                             | Email address
-                                        input.form-control(type="email", id="email", name="email", aria-describedby="emailHelp", placeholder="Enter email")
+                                        input.form-control(class=errorEmail ? "is-invalid": "" type="email", id="email", name="email", placeholder="Enter email" required)
+                                        if errorEmail
+                                            .invalid-feedback
+                                                | #{errorEmail}
+                                    if errorSend
+                                        .alert.alert-danger(role="alert")
+                                            | #{errorSend}
+                                    if successSend
+                                        .success.success-danger(role="alert")
+                                            | #{successSend}
                                     .form-footer
                                         button#forgot-btn.btn.btn-primary.btn-block(type="submit")
                                             | Send me new password
